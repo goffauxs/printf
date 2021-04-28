@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/03/30 16:15:59 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/12 11:26:17 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-int	ft_c(char c, t_flags *f)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int		char_count;
+	size_t			i;
+	unsigned char	*p_dest;
+	unsigned char	*p_src;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	p_dest = (unsigned char *)dest;
+	p_src = (unsigned char *)src;
+	while (i < n)
+	{
+		p_dest[i] = p_src[i];
+		i++;
+	}
+	return (dest);
 }

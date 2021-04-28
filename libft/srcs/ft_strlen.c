@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/01 10:47:03 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/12 11:31:36 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-int	ft_c(char c, t_flags *f)
+size_t	ft_strlen(const char *s)
 {
-	int		char_count;
+	size_t	i;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

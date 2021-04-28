@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_s.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 13:00:03 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:39:37 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/02 14:50:15 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/07 11:08:34 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_s(char *str, t_flags *f)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	int		len;
-	int		char_count;
-	int		i;
+	char	*ret;
+	size_t	i;
+	size_t	j;
+	size_t	s1_len;
+	size_t	s2_len;
 
+	if (!s1 || !s2)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	ret = malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!ret)
+		return (NULL);
 	i = -1;
-	if (f->precision >= 0)
-		len = f->precision;
-	else
-		len = ft_strlen(str);
-	if (f->minus)
-		while (++i < len)
-			ft_putchar_fd(str[i], 1);
-	char_count = ft_pad(f, len);
-	if (!f->minus)
-		while (++i < len)
-			ft_putchar_fd(str[i], 1);
-	return (char_count + len);
+	j = -1;
+	while (++i < s1_len)
+		ret[i] = s1[i];
+	while (++j < s2_len)
+		ret[i++] = s2[j];
+	ret[i] = '\0';
+	return (ret);
 }

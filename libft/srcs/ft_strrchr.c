@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/02 10:50:45 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/06 11:28:53 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_c(char c, t_flags *f)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		char_count;
+	int	i;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i--;
+	}
+	return (NULL);
 }

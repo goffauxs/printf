@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/01 09:49:36 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/12 11:26:26 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-int	ft_c(char c, t_flags *f)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int		char_count;
+	size_t			i;
+	unsigned char	*p_dest;
+	unsigned char	*p_src;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	if (!dest && !src)
+		return (NULL);
+	p_dest = (unsigned char *)dest;
+	p_src = (unsigned char *)src;
+	i = 0;
+	if (p_src < p_dest)
+	{
+		while (n-- > 0)
+			p_dest[n] = p_src[n];
+	}
+	else
+	{
+		while (i < n)
+		{
+			p_dest[i] = p_src[i];
+			i++;
+		}
+	}
+	return (dest);
 }

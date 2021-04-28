@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 17:19:57 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 10:29:21 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 13:55:27 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_flags(const char *format, t_flags *f)
 		f->minus = 1;
 	else if (*format == '0')
 		f->zero = 1;
+	else if (*format == '#')
+		f->hash = 1;
 	else
 		return (0);
 	return (1);

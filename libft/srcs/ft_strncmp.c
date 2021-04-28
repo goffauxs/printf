@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/02 11:15:01 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/12 11:31:52 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-int	ft_c(char c, t_flags *f)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		char_count;
+	size_t	i;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	i = 0;
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
+		i++;
+	}
+	return (0);
 }

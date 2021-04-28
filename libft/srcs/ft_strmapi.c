@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/05 13:02:17 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/05 14:08:02 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_c(char c, t_flags *f)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	int		char_count;
+	char			*ret;
+	unsigned int	i;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	if (!s || !f)
+		return (NULL);
+	ret = malloc(sizeof(*ret) * (ft_strlen(s) + 1));
+	if (!ret)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ret[i] = (*f)(i, s[i]);
+		i++;
+	}
+	ret[i] = '\0';
+	return (ret);
 }

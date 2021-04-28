@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:34:25 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 12:52:10 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:23:31 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ static void	ft_init_flags(t_flags *f)
 {
 	f->minus = 0;
 	f->zero = 0;
-	f->precision = 0;
+	f->hash = 0;
+	f->precision = -1;
 	f->width = 0;
 }
 
 static int	ft_parse_format_string(const char *format, va_list args)
 {
 	int		char_count;
-	int		i;
 	t_flags	f;
 
-	i = 0;
 	char_count = 0;
 	while (*format != '\0')
 	{

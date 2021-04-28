@@ -6,32 +6,44 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 16:02:38 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 12:47:14 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 16:15:38 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_precision(const char *format, t_flags *f, va_list args)
+int	ft_get_num_digits(int n)
 {
-	int	precision;
 	int	i;
 
 	i = 0;
-	precision = 0;
-	if (*format == '*')
+	if (n == 0)
+		return (0);
+	while (n != 0)
 	{
-		f->precision = va_arg(args, int);
-		return (1);
-	}
-	if (ft_isdigit(*format))
-		precision = ft_atoi(format);
-	if (precision > 0)
-		f->precision = precision;
-	while (precision != 0)
-	{
-		precision /= 10;
+		n /= 10;
 		i++;
 	}
 	return (i);
+}
+int	ft_precision(const char *format, t_flags *f, va_list args)
+{
+	if (*format == '.')
+	{
+		if (*(format + 1) == '*')
+		{
+			f->precision = va_arg(args, int);
+			return (1);
+		}
+		if (ft_isdigit(*(format + 1)))
+		{
+			f->precision = ft_atoi((format + 1));
+			return (ft_get_num_digits(f->precision) + 1);
+		}
+		else
+		{
+			f->precision = 0;
+			return (1);
+		}
+	}
+	return (0);
 }

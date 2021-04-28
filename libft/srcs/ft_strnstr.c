@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_width.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/23 15:48:59 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 14:39:22 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/02 10:52:42 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/21 12:31:54 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_width(const char *format, t_flags *f, va_list args)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	width;
-	int	i;
+	size_t	i;
+	size_t	little_len;
 
 	i = 0;
-	width = 0;
-	if (*format == '*')
+	little_len = ft_strlen(little);
+	if (little_len == 0)
+		return ((char *)big);
+	while (big[i] != '\0' && i <= len)
 	{
-		f->width = va_arg(args, int);
-		if (f->width < 0)
+		if (big[i] == little[0] && !ft_memcmp(&big[i], little, little_len))
 		{
-			f->minus = 1;
-			f->width = -f->width;
+			if (i <= len - little_len)
+				return ((char *)&big[i]);
+			return (NULL);
 		}
-		return (1);
-	}
-	if (ft_isdigit(*format))
-		width = ft_atoi(format);
-	if (width > 0)
-		f->width = width;
-	while (width != 0)
-	{
-		width /= 10;
 		i++;
 	}
-	return (i);
+	return (NULL);
 }

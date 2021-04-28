@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/02 12:37:58 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/02 12:40:41 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_c(char c, t_flags *f)
+char	*ft_strdup(const char *s)
 {
-	int		char_count;
+	char	*duplicate;
+	int		i;
+	int		len;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	len = ft_strlen(s);
+	duplicate = malloc(sizeof(char) * (len + 1));
+	if (!duplicate)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		duplicate[i] = s[i];
+		i++;
+	}
+	duplicate[i] = '\0';
+	return (duplicate);
 }

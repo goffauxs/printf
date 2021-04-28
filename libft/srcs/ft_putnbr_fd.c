@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/26 16:14:36 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 15:45:08 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/05 15:04:10 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/12 18:38:59 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
-int	ft_c(char c, t_flags *f)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		char_count;
+	char			c;
+	unsigned int	tmp_nbr;
 
-	if (f->minus)
-		ft_putchar_fd(c, 1);
-	char_count = ft_pad(f, 1);
-	if (!f->minus)
-		ft_putchar_fd(c, 1);
-	return (char_count + 1);
+	if (fd < 0)
+		return ;
+	if (n < 0)
+		tmp_nbr = -1 * n;
+	else
+		tmp_nbr = n;
+	if (n < 0)
+		write(fd, "-", 1);
+	if (tmp_nbr > 9)
+	{
+		ft_putnbr_fd((tmp_nbr / 10), fd);
+		ft_putnbr_fd((tmp_nbr % 10), fd);
+	}
+	else
+	{
+		c = tmp_nbr + '0';
+		write(fd, &c, 1);
+	}
 }
