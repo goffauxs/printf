@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:34:25 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/27 13:11:48 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 10:29:34 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 {
 	int		char_count;
 	va_list	args;
-	
+
 	char_count = 0;
 	va_start(args, format);
 	char_count = ft_parse_format_string(format, args);

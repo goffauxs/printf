@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 16:02:38 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/27 12:59:03 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 10:29:26 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_precision(const char *format, t_flags *f, va_list args)
 {
 	int	precision;
 	int	i;
-	
+
 	i = 0;
 	precision = 0;
 	if (*format == '*')

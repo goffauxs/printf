@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:59:18 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/27 16:05:19 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 10:29:45 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_pad(t_flags *f, int size)
 {
 	int	char_count;
 	int	width;
-	
+
 	char_count = 0;
 	if (f->precision)
 		width = f->precision;
