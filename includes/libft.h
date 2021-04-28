@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 09:22:04 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/27 17:51:26 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 12:19:45 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-char	*ft_itoa_hex(unsigned long long int n);
+
+// Bonus Personal functions
+char	*ft_itoa_hex(unsigned long long n);
+char	*ft_uitoa(unsigned int n);
+char	*ft_strmap(const char *s, int (*f)(int));
 
 #endif

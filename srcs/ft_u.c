@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision.c                                     :+:      :+:    :+:   */
+/*   ft_u.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/23 16:02:38 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 12:47:14 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/28 11:57:52 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/28 12:43:53 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_precision(const char *format, t_flags *f, va_list args)
+int	ft_u(unsigned int n, t_flags *f)
 {
-	int	precision;
-	int	i;
+	int		char_count;
+	char	*str;
+	int		len;
 
-	i = 0;
-	precision = 0;
-	if (*format == '*')
-	{
-		f->precision = va_arg(args, int);
-		return (1);
-	}
-	if (ft_isdigit(*format))
-		precision = ft_atoi(format);
-	if (precision > 0)
-		f->precision = precision;
-	while (precision != 0)
-	{
-		precision /= 10;
-		i++;
-	}
-	return (i);
+	str = ft_uitoa(n);
+	len = ft_strlen(str);
+	if (f->minus)
+		ft_putstr_fd(str, 1);
+	char_count = ft_pad(f, len);
+	if (!f->minus)
+		ft_putstr_fd(str, 1);
+	free(str);
+	return (char_count + len);
 }

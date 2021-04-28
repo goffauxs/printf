@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:48:59 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 10:29:48 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/28 12:49:55 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_width(const char *format, t_flags *f, va_list args)
 		return (1);
 	}
 	if (ft_isdigit(*format))
-		width = ft_atoi(*format);
+		width = ft_atoi(format);
 	if (width > 0)
 		f->width = width;
 	while (width != 0)

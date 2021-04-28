@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_p.c                                             :+:      :+:    :+:   */
+/*   ft_d.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/27 13:18:40 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 10:28:57 by sgoffaux         ###   ########.fr       */
+/*   Created: 2021/04/28 10:32:52 by sgoffaux          #+#    #+#             */
+/*   Updated: 2021/04/28 12:45:42 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_p(va_list args, t_flags *f)
+int	ft_d(int n, t_flags *f)
 {
-	char					*str;
-	unsigned long long int	n;
-	int						char_count;
-	int						len;
+	int		char_count;
+	char	*str;
+	char	*neg_str;
+	int		len;
 
-	n = va_arg(args, unsigned long long);
-	str = ft_itoa_hex(n);
-	len = ft_strlen(str);
-	if (f->minus == 1)
-	{
-		ft_putstr_fd("0x", 1);
-		ft_putstr_fd(str, 1);
-	}
+	neg_str = ft_itoa(n);
+	len = ft_strlen(neg_str);
+	str = ft_strtrim(neg_str, "-");
+	if (f->minus)
+		ft_putstr_fd(neg_str, 1);
+	if (n < 0 && f->zero)
+		ft_putchar_fd('-', 1);
 	char_count = ft_pad(f, len);
-	if (f->minus == 0)
-	{
-		ft_putstr_fd("0x", 1);
+	if (f->zero)
 		ft_putstr_fd(str, 1);
-	}
-	return (char_count + len + 2);
+	else
+		ft_putstr_fd(neg_str, 1);
+	free(neg_str);
+	free(str);
+	return (char_count + len);
 }
