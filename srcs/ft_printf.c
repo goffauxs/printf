@@ -6,18 +6,19 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:34:25 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/30 10:30:49 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/30 16:57:52 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static void	ft_init_flags(t_flags *f)
 {
 	f->minus = 0;
 	f->zero = 0;
 	f->hash = 0;
-	f->precision = -1;
+	f->prec = -1;
 	f->width = 0;
 }
 

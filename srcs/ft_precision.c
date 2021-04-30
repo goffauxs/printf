@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 16:02:38 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/30 11:32:29 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/30 15:41:29 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ int	ft_precision(const char *format, t_flags *f, va_list args)
 		format++;
 		if (*format == '*')
 		{
-			f->precision = va_arg(args, int);
+			f->prec = va_arg(args, int);
 			return (2);
 		}
 		if (ft_isdigit(*format))
 		{
-			f->precision = ft_atoi(format);
-			return (ft_get_num_digits(f->precision) + 1);
+			f->prec = ft_atoi(format);
+			return (ft_get_num_digits(f->prec) + 1);
 		}
 		else
 		{
-			f->precision = 0;
+			f->prec = 0;
 			return (1);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 13:00:03 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/30 11:32:42 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/30 15:41:40 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	ft_s(char *str, t_flags *f)
 		str = "(null)";
 	i = -1;
 	len = ft_strlen(str);
-	if (f->precision >= 0 && f->precision < len)
-		len = f->precision;
+	if (f->prec >= 0 && f->prec < len)
+		len = f->prec;
 	if (f->minus)
 		while (++i < len)
 			ft_putchar_fd(str[i], 1);
