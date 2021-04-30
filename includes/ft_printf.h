@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:41:22 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 14:37:03 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/30 10:39:43 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_flags
 
 int	ft_printf(const char *format, ...);
 int	ft_flags(const char *format, t_flags *f);
-int	ft_pad(t_flags *f, int size);
+int	ft_pad(t_flags *f, int size, const char conv);
 int	ft_width(const char *format, t_flags *f, va_list args);
 int	ft_precision(const char *format, t_flags *f, va_list args);
 int	ft_convert(const char *format, t_flags *f, va_list args);

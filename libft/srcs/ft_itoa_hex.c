@@ -6,19 +6,17 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 10:51:28 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 11:02:52 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/04/30 11:50:35 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_getlen(int n)
+static int	ft_getlen(unsigned long long n)
 {
 	int	i;
 
 	i = 0;
-	if (n <= 0)
-		i++;
 	while (n != 0)
 	{
 		n /= 10;
