@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 10:32:52 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/05/03 13:22:38 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:37:22 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	ft_d(int n, t_flags *f)
 	char_count = ft_pad(f, len);
 	if (!f->minus)
 	{
-		if (n < 0 && (!f->zero || f->prec >= 0))
-			ft_putchar_fd('-', 1);
+		ft_put_sign(f, n);
 		ft_pad_prec((str + (n < 0)), f, num_d);
 	}
 	if (!(n == 0 && f->prec == 0))

@@ -6,11 +6,24 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:59:18 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/05/03 15:58:56 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:36:34 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_put_sign(t_flags *f, int n)
+{
+	if (!f->zero || f->prec >= 0)
+	{
+		if (n < 0)
+			ft_putchar_fd('-', 1);
+		else if (f->space)
+			ft_putchar_fd(' ', 1);
+		else if (f->plus)
+			ft_putchar_fd('+', 1);
+	}
+}
 
 void	ft_pad_prec(char *str, t_flags *f, int size)
 {
