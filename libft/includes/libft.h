@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 09:22:04 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 12:19:45 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/05/03 14:11:04 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // Bonus Personal functions
 char	*ft_itoa_hex(unsigned long long n);
 char	*ft_uitoa(unsigned int n);
-char	*ft_strmap(const char *s, int (*f)(int));
+void	ft_strmap(char *s, int (*f)(int));
 
 #endif

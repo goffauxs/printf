@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:58:45 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/04/28 16:03:47 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/05/03 15:48:17 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	ft_convert(const char *format, t_flags *f, va_list args)
 		return (ft_x(args, f, *format));
 	else if (*format == '%')
 	{
-		ft_putchar_fd('%', 1);
-		return (1);
+		f->percent = 1;
+		return (ft_percent(f));
 	}
 	return (0);
 }

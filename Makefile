@@ -6,7 +6,7 @@
 #    By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 14:01:38 by sgoffaux          #+#    #+#              #
-#    Updated: 2021/04/28 14:29:01 by sgoffaux         ###   ########.fr        #
+#    Updated: 2021/05/03 14:26:44 by sgoffaux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS	=	srcs/ft_printf.c \
 			srcs/ft_d.c \
 			srcs/ft_u.c \
 			srcs/ft_x.c \
+			srcs/ft_percent.c \
 			srcs/ft_utils.c
 
 OBJS	=	$(SRCS:.c=.o)
