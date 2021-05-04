@@ -6,7 +6,7 @@
 /*   By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 16:02:38 by sgoffaux          #+#    #+#             */
-/*   Updated: 2021/05/03 14:48:58 by sgoffaux         ###   ########.fr       */
+/*   Updated: 2021/05/04 10:41:38 by sgoffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_get_num_digits(int n)
 
 int	ft_precision(const char *format, t_flags *f, va_list args)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (*format == '.')
