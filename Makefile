@@ -6,7 +6,7 @@
 #    By: sgoffaux <sgoffaux@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 14:01:38 by sgoffaux          #+#    #+#              #
-#    Updated: 2021/05/03 14:26:44 by sgoffaux         ###   ########.fr        #
+#    Updated: 2021/05/04 10:56:04 by sgoffaux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ $(NAME):	$(OBJS)
 			$(MAKE) -C libft
 			cp -p libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJS)
+
+bonus:		$(NAME)
 
 .c.o:
 			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
